@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title>Taquistore</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <h1>Añadir un categoria</h1>
+        <ul>
+            <li><a th:href="@{/categorias}">Lista de categorias</a></li>
+        </ul>
+        <br>
+        <form th:action="@{/categorias}" th:object="${datos_categoria}" method="POST">
+            <label>Nombre: </label>
+            <input type="text" name="nombre_categoria" th:field="*{nombre_categoria}" maxlength="200" required>
+            <br>
+            <br>
+            <label>Descripcion: </label>
+            <textarea name="descripcion_categoria" th:field="*{descripcion_categoria}" maxlength="1500" required></textarea>
+            <br>
+            <br>
+            <button type="input">Agregar categoria</button>
+        </form>
+    </body>
+</html>

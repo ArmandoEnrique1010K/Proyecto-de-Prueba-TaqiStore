@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title>Taquistore</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <h1>Datos del producto</h1>
+        <ul>
+            <li><a th:href="@{/productos}">Página de productos</a></li>
+        </ul>
+        <div th:each="productounico: ${caracteristicas_producto}">
+            <p>
+                ID: <span th:text="${productounico.id_producto}"></span><br>
+                Nombre: <span th:text="${productounico.nombre_producto}"></span><br>
+                Descripción: <span th:text="${productounico.descripcion_producto}"></span><br>
+                Precio: <span th:text="${productounico.precio_producto}"></span><br>
+                Estado: <span th:text="${productounico.estado_producto}"></span><br>
+                Categoria: <span th:text="${productounico.id_categoria_producto.nombre_categoria}"></span><br>
+            </p>
+        </div>
+    </body>
+</html>

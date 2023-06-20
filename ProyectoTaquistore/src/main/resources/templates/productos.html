@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title>Taquistore</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <h1>Productos</h1>
+        <ul>
+            <li><a th:href="@{/}">Página de inicio</a></li>
+            <li><a th:href="@{/productos/nuevo}">Añadir nuevo producto</a></li>
+        </ul>
+        
+        <!-- BARRA DE BUSQUEDA -->
+        <div>
+            <form th:action="@{/productos}">
+                <label>Buscar productos: </label>
+                <input type="text" name="palabraClave" id="palabraClave" 
+                       size="30" th:value="${palabraClave}"
+                       placeholder="escriba aqui el nombre del producto"
+                       required>
+                <br>
+                <br>
+                <button type="input">Buscar</button>
+                <button type="button" onclick="limpiarCampos()">Limpiar</button>
+            </form>
+        </div>
+        <br>
+        <br>
+        <table border="1">
+            <tr>
+                <th>ID</th>
+                <th>Nombre</th>
+                <th>Descripción</th>
+                <th>Precio</th>
+                <th>Estado</th>
+                <th>Categoria</th>
+                <th>Detalles</th>
+                <th>Editar</th>
+                <th>Eliminar</th>
+            </tr>
+            <tr th:each="productounico : ${lista_productos}">
+                <td th:text="${productounico.id_producto}"></td>
+                <td th:text="${productounico.nombre_producto}"></td>
+                <td th:text="${productounico.descripcion_producto}"></td>
+                <td th:text="${productounico.precio_producto}"></td>
+                <td th:text="${productounico.estado_producto}"></td>
+                <!--
+                <td th:text="${productounico.id_categoria_producto.nombre_categoria}"></td>
+                -->
+                <td th:text="${productounico.nombre_categoria}"></td>
+                <td> 
+                    <a th:href="@{/productos/detalles/{id} (id = ${productounico.id_producto})}">Detalles</a>
+                </td>
+                <td> 
+                    <a th:href="@{/productos/editar/{id} (id = ${productounico.id_producto})}">Editar</a>
+                </td>
+                <td>
+                    <a th:href="@{/productos/eliminar/{id} (id = ${productounico.id_producto})}">Eliminar</a>
+                </td>
+            </tr>
+        </table>
+        
+        <script type="text/javascript">
+            function limpiarCampos(){
+                window.location = '/productos/';
+            }
+        </script>
+    </body>
+</html>

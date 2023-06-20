@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title>Taquistore</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <h1>Categorias</h1>
+        <ul>
+            <li><a th:href="@{/}">Página de inicio</a></li>
+            <li><a th:href="@{/categorias/nuevo}">Añadir nueva categoria</a></li>
+        </ul>
+        <table border="1">
+            <tr>
+                <th>ID</th>
+                <th>Nombre</th>
+                <th>Descripción</th>
+                <th>Estado</th>
+                <th>Detalles</th>
+                <th>Editar</th>
+                <th>Eliminar</th>
+            </tr>
+            <tr th:each="categoriaunica : ${lista_categorias}">
+                <td th:text="${categoriaunica.id_categoria}"></td>
+                <td th:text="${categoriaunica.nombre_categoria}"></td>
+                <td th:text="${categoriaunica.descripcion_categoria}"></td>
+                <td th:text="${categoriaunica.estado_categoria}"></td>
+                <td> 
+                    <a th:href="@{/categorias/detalles/{id} (id = ${categoriaunica.id_categoria})}">Detalles</a>
+                </td>
+                <td> 
+                    <a th:href="@{/categorias/editar/{id} (id = ${categoriaunica.id_categoria})}">Editar</a>
+                </td>
+                <td>
+                    <a th:href="@{/categorias/eliminar/{id} (id = ${categoriaunica.id_categoria})}">Eliminar</a>
+                </td>
+            </tr>
+        </table>
+    </body>
+</html>

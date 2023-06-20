@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title>Taquistore</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <h1>Editar el producto seleccionado</h1>
+        <ul>
+            <li><a th:href="@{/productos}">Lista de productos</a></li>
+        </ul>
+        <br>
+        <form th:action="@{/productos/{id} (id = ${parametros_producto.id_producto})}" th:object="${parametros_producto}" method="POST">
+            <label>ID: </label>
+            <input type="text" name="id_producto" th:field="*{id_producto}" disabled>
+            <br>
+            <br>
+            <label>Nombre: </label>
+            <input type="text" name="nombre_producto" th:field="*{nombre_producto}" maxlength="200" required>
+            <br>
+            <br>
+            <label>Descripción: </label>
+            <textarea name="descripcion_producto" th:field="*{descripcion_producto}" maxlength="1500" required></textarea>
+            <br>
+            <br>
+            <label>Precio: </label>
+            <input type="text" name="precio_producto" th:field="*{precio_producto}" required>
+            <br>
+            <br>
+            <label>Categoria: </label>
+            <select th:field="*{id_categoria_producto}" required>
+                <option value="">Seleccione una categoria</option>
+                <option th:each="categoriaunica: ${categoria_actual}"
+                        th:value="${categoriaunica.id_categoria}"
+                        th:text="${categoriaunica.nombre_categoria}"></option>  
+            </select>
+            <br>
+            <br>
+            <button type="input">Actualizar producto</button>
+        </form>
+    </body>
+</html>
