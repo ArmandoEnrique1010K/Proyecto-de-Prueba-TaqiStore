@@ -1,0 +1,12 @@
+create database bdtaquistore;
+use bdtaquistore;
+
+insert into tabla_productos(c_nombre_producto, c_descripcion_producto, c_precio_producto, c_estado_producto) values
+('Televisor', 'Este es un televisor en venta', 2000, 1),
+('Computadora', 'Este es una computadora en venta, incluye un monitor', 3500, 1),
+('Impresora', 'Esta es una impresora que usa tinta liquida', 1500, 1),
+('Celular', 'Este es un celular del año 2010', 200, 0);
+
+
+select * from tabla_productos;
+

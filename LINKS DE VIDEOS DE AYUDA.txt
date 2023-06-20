@@ -1,0 +1,23 @@
+
+
+PARTE 1 DEL PROYECTO TAQUISTORE
+
+CRUD en Spring Boot usando MySQL + Thymeleaf y Bootstrap
+https://www.youtube.com/watch?v=oF3XmiHgT-I&list=PL_8FSlpwPBDmFEy9Rcj2M_OZTc2NJvfpz&index=1&ab_channel=LaTecnolog%C3%ADaAvanza
+
+Creación de un Rest API utilizando MySQL, Netbeans, Spring y Postman
+https://www.youtube.com/watch?v=TCqr3NNzIdI&ab_channel=MarioAntonioHuapallaMorales
+
+
+PARTE 2 DEL PROYECTO TAQUISTORE
+
+Curso básico de relaciones entre tablas en Spring Boot con Thymeleaf , MySQL , Hibernate y JUnit
+https://www.youtube.com/watch?v=yZXjA4wLR78&list=PL_8FSlpwPBDmFEy9Rcj2M_OZTc2NJvfpz&index=4&ab_channel=LaTecnolog%C3%ADaAvanza
+
+
+PARTE 3 DEL PROYECTO TAQUISTORE
+
+Desarrollo de una búsqueda de filtros y CRUD con Spring Data JPA , Hibernate , MySQL y Thymeleaf
+https://www.youtube.com/watch?v=Lq7ueg1z4WA&list=PL_8FSlpwPBDmFEy9Rcj2M_OZTc2NJvfpz&index=3&ab_channel=LaTecnolog%C3%ADaAvanza
+
+

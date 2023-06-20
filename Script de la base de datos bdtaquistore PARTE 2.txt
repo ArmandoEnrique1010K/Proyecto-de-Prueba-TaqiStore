@@ -1,0 +1,23 @@
+drop database bdtaquistore;
+create database bdtaquistore;
+use bdtaquistore;
+
+##################################################
+##################################################
+
+
+insert into tabla_categorias(c_nombre_categoria, c_descripcion_categoria, c_estado_categoria) values
+('Computo', 'Estos son equipos de computo', 1),
+('Telefonia', 'Estos son smartphones y iphones a la venta', 1),
+('Televisores', 'Estos son televisores en venta', 1);
+
+
+insert into tabla_productos(c_nombre_producto, c_descripcion_producto, c_precio_producto, c_estado_producto, c_id_categoria) values
+('Televisor', 'Este es un televisor en venta', 2000, 1, 3),
+('Computadora', 'Este es una computadora en venta, incluye un monitor', 3500, 1, 1),
+('Impresora', 'Esta es una impresora que usa tinta liquida', 1500, 1, 1),
+('Celular', 'Este es un celular del año 2010', 200, 0, 2);
+
+select * from tabla_categorias;
+select * from tabla_productos;
+

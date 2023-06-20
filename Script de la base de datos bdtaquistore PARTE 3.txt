@@ -1,0 +1,107 @@
+drop database bdtaquistore;
+create database bdtaquistore;
+use bdtaquistore;
+
+##################################################
+##################################################
+
+
+insert into tabla_categorias(c_nombre_categoria, c_descripcion_categoria, c_estado_categoria) values
+('Computadoras', 'Computadoras, laptos y notebooks de alta calidad a la venta', 1),
+('Impresoras y tintas', 'Compra online tus impresoras y tintas sin intereses', 1),
+('Fotografia', 'La mayor ventaja de la fotografía digital es su rapidez', 1),
+('Smarthome', 'Venta de sistemas capaces de automatizar una vivienda o edificio', 1),
+('Accesorios de computo', 'Audifonos, camaras web, discos duros, memorias USB, programas para PC y más...', 1),
+('Relojes', 'Pruebe los nuevos Smartwatch...', 1),
+('Videojuegos', 'Venta de consolas y videojuegos', 1),
+('Celulares', 'Compra tu nuevo celular Android o iOS antes que se agote', 1),
+('Bebidas', 'Esto no esta a la venta', 1),
+('Snacks', 'Esto no esta a la venta', 1);
+
+# TODOS LOS PRODUCTOS FUERON TOMADOS DE LA PÁGINA DE HIRAOKA COMO EJEMPLO
+insert into tabla_productos(c_nombre_producto, c_descripcion_producto, c_precio_producto, c_estado_producto, c_id_categoria) values
+('Laptop Acer Aspire 3 de 15.6''', 
+'Modelo A315-59-51A0, procesador Intel Core i5 (12va generación), 8GB RAM, 512GB de disco sólido, cámara web 
+720HD, entrada USB, HDMI, Windows 11, Wifi, Bluetooth 5.0, para oficina o estudiante universitario.',
+2099, 1, 1),
+('Laptop Lenovo IdeaPad 3i de 15.6"', 
+'modelo 82H8031YLM, procesador Intel Core i7 (11va generación), 16GB RAM, disco sólido de 512GB, cámara web 
+720p HD, entrada USB, HDMI y tipo C, Bluetooth 5.1, WiFi, Windows 11 Home, para oficina o estudiantes', 
+3099, 1, 1),
+('Laptop Gamer Lenovo IdeaPad Gaming 3 de 15.6"', 
+'procesador AMD Ryzen 7 5800H, 16GB RAM, disco sólido de 512GB, cámara web 720HD, entrada HDMI y tipo C, 
+Bluetooth 5.0, Windows 11, tarjeta gráfica GeForce RTX 3060 de 6GB, para gamers.', 
+4299, 1, 1),
+('Impresora multifuncional Canon Pixma G3160', 
+'Características Generales: Sistema de Tinta Integrado - 4 colores, Certificación Energy Star, 
+Pantalla LCD de 2 líneas, Alimentador Automático de Documentos completamente integrado (ADF, por sus 
+siglas en inglés), Sistema de Tinta Híbrido, Alto rendimiento de 6,000 páginas en negro y 7,000 en color 
+y 2,000 fotos en color22, Texto Nítido, Wi-Fi LED, Clasificación EPEAT Plata, Encendido y Apagado Automático, 
+Modo Silencioso, Aplicación Canon PRINT1, PIXMA Cloud Link9, Creative Park.', 
+749, 1, 2),
+('Impresora Multifuncional HP Smart Tank 790 Dúplex 4WF66A', 
+'Incluye 25 hojas de Papel Foto Adhesivo Brillante 120g Jumbo', 
+1499, 1, 2),
+('Cámara Instax Fujifilm Wide 300 + Lente CloseUp', 
+'Cámara Instax Fujifilm Wide 300 + Lente CloseUp', 
+549, 1, 3),
+('Cámara Instax Fujifilm Square SQ1 Azul Glaciar', 
+'Cámara Instax Fujifilm Square SQ1 Azul Glaciar', 
+549, 1, 3),
+('Drone DJI Mini 3 Fly More Combo Plus (RC) (GL)', 
+'DJI Mini 3 es un dron con cámara compacto y ultraligero creado para la aventura. Cuenta con batería de mayor duración, 
+video 4K HDR rico en detalles y funciones divertidas como True Vertical Shooting para tomas optimizadas para redes sociales. 
+Ya sea que esté capturando un viaje épico por carretera o simplemente un día en su propio patio trasero, Mini 3 está listo 
+para el momento.', 
+3799, 1, 3),
+('Cámara de Seguridad IP TP-Link Tapo C320WS', 
+'24/7 Full Color / Visión nocturna Luz de estrellas / Detección de movimiento y notificaciones / Alarma de sirena, 
+Potentes antenas duales / IP66 resistente a la intemperie / Audio bidireccional / Almacenamiento micro SD 256GB /
+Dimensiones: 14.23 cm  x 10.34 cm x 6.43 cm / Incluye: Camara, cable de poder y accesorios para instalacion 
+externa', 
+259, 1, 4),
+('Router D-Link DIR-2150', 
+'Router D-Link DIR-2150', 
+199, 1, 4),
+('Estabilizador Powelite Pulsar PLI-1000', 
+'8 Salidas Protegidas y Estabilizadas para Equipos Periféricos y Accesorios. / Salidas Nema Universales. / Regulación 
+Automática de Voltaje Alto y Bajo. / Protección Contra Picos Para su Internet, ADSL, Televisor. / Interruptor de 
+Circuito Para Resetear Sobrecarga de Entrada. / Indicador Visual de Situación del Equipo. / Adosable: Para Fácil 
+Instalación en la Pared.', 
+89, 1, 4),
+('Audífono Gamer JBL Quantum 400 Negro', 
+'Vive tus juegos al máximo con el Audífono Gamer JBL Quantum 400. Micrófono vocal direccional de asta abatible. 
+Dial de equilibrio de sonido juego-chat para una comunicación fluida.', 
+379, 1, 5),
+('Disco Duro Externo Toshiba Canvio Advance V10 4TB Blanco HDTCA40XW3CA', 
+'Disco Duro Externo Toshiba Canvio Advance V10 4TB Blanco HDTCA40XW3CA.', 
+589, 1, 5);
+
+
+select * from tabla_categorias;
+select * from tabla_productos;
+
+
+SELECT 
+A.c_id_producto, A.c_nombre_producto, A.c_descripcion_producto, A.c_precio_producto, A.c_estado_producto, 
+B.c_estado_categoria, B.c_nombre_categoria,
+A.c_id_categoria, B.c_id_categoria FROM 
+tabla_productos A INNER JOIN tabla_categorias B ON A.c_id_categoria = B.c_id_categoria
+WHERE c_estado_producto = true and c_estado_categoria = true;
+ 
+SELECT p.*, q.*
+FROM tabla_productos p
+JOIN tabla_categorias q ON p.c_id_categoria = q.c_id_categoria
+WHERE p.c_estado_producto = true AND q.c_estado_categoria = true;
+
+SELECT p.*, q.*
+FROM tabla_productos p
+JOIN tabla_categorias q ON p.c_id_categoria = q.c_id_categoria
+WHERE p.c_estado_producto = true AND q.c_estado_categoria = true AND p.c_nombre_producto LIKE '%laptop%';
+
+SELECT p.*, q.*
+FROM tabla_productos p
+JOIN tabla_categorias q ON p.c_id_categoria = q.c_id_categoria
+WHERE p.c_estado_producto = true AND q.c_estado_categoria = true 
+AND CONCAT(p.c_id_producto, p.c_descripcion_producto, p.c_nombre_producto, 
+p.c_precio_producto, q.c_nombre_categoria) LIKE '%camara%';
