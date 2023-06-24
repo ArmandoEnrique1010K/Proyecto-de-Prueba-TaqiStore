@@ -48,7 +48,8 @@ public class ProductoController {
         modelo.addAttribute("caracteristicas_producto", varunproducto);
         return "plantillaunproducto.html";
     }
-
+    
+    // MODIFICAR LOS CONTROLADORES PARA UNIR LAS 2 PÁGINAS WEB
     @GetMapping("/nuevo")
     public String mostrarformularioderegistrarproducto(Model modelo1, Model modelo2) {
         ProductoEntity productoEntity = new ProductoEntity();
@@ -57,7 +58,9 @@ public class ProductoController {
         // var varcategorias = categoriaservicio.listarTodasLasCategorias();
         var varcategorias = categoriaservicio.listarPorEstadoTrue(Boolean.TRUE);
         modelo2.addAttribute("lista_categorias", varcategorias);
-        return "formularioproducto.html";
+        
+        // return "formularioproducto.html";
+        return "formproducto.html";
     }
 
     @PostMapping
@@ -69,16 +72,20 @@ public class ProductoController {
     @GetMapping("/editar/{id_producto}")
     public String mostrarformulariodeeditarproducto(@PathVariable Long id_producto, Model modelo1, Model modelo2) {
         var varunproducto = productoservicio.listarUnProducto(id_producto);
-        modelo1.addAttribute("parametros_producto", varunproducto);
+        // modelo1.addAttribute("parametros_producto", varunproducto);
+        modelo1.addAttribute("datos_producto", varunproducto);
         
         // var varcategorias = categoriaservicio.listarTodasLasCategorias();
         var varcategorias = categoriaservicio.listarPorEstadoTrue(Boolean.TRUE);
         modelo2.addAttribute("categoria_actual", varcategorias);
-        return "formularioeditarproducto.html";
+        
+        // return "formularioeditarproducto.html";
+        return "formproducto.html";
     }
 
     @PostMapping("/{id_producto}")
-    public String actualizarelproductoseleccionado(@PathVariable Long id_producto, @ModelAttribute("parametros_producto") ProductoDto productoeditado) {
+    // public String actualizarelproductoseleccionado(@PathVariable Long id_producto, @ModelAttribute("parametros_producto") ProductoDto productoeditado) {
+    public String actualizarelproductoseleccionado(@PathVariable Long id_producto, @ModelAttribute("datos_producto") ProductoDto productoeditado) {
         productoservicio.actualizarProducto(productoeditado);
         return "redirect:/productos";
     }

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title>Taquistore</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        
+        <!-- <h1>Añadir un categoria</h1> -->
+        <div>
+            <h1 th:if="${datos_categoria.id_categoria == null}">Añadir una categoria</h1>
+            <h1 th:unless="${datos_categoria.id_categoria == null}">Editar la categoria seleccionada</h1>
+        </div>
+        
+        <ul>
+            <li><a th:href="@{/categorias}">Lista de categorias</a></li>
+        </ul>
+        <br>
+        
+        <div>
+            <!-- SOLO UNO DE LOS 2 FORMULARIOS SE VA A MOSTRAR EN LA PÁGINA WEB -->
+            <form th:if="${datos_categoria.id_categoria == null}" 
+                  th:action="@{/categorias}" th:object="${datos_categoria}" method="POST">
+                <label>Nombre: </label>
+                <input type="text" name="nombre_categoria" th:field="*{nombre_categoria}" maxlength="200" required>
+                <br>
+                <br>
+                <label>Descripcion: </label>
+                <textarea name="descripcion_categoria" th:field="*{descripcion_categoria}" maxlength="1500" required></textarea>
+                <br>
+                <br>
+                <button type="input">Agregar categoria</button>
+            </form>
+
+            <form th:unless="${datos_categoria.id_categoria == null}"
+                  th:action="@{/categorias/{id} (id = ${datos_categoria.id_categoria})}" th:object="${datos_categoria}" method="POST">
+                <label>ID: </label>
+                <input type="text" name="id_categoria" th:field="*{id_categoria}" disabled>
+                <br>
+                <br>
+                <label>Nombre: </label>
+                <input type="text" name="nombre_categoria" th:field="*{nombre_categoria}" maxlength="200" required>
+                <br>
+                <br>
+                <label>Descripción: </label>
+                <textarea name="descripcion_categoria" th:field="*{descripcion_categoria}" maxlength="1500" required></textarea>
+                <br>
+                <br>
+                <button type="input">Actualizar categoria</button>
+            </form>
+        </div>
+    </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

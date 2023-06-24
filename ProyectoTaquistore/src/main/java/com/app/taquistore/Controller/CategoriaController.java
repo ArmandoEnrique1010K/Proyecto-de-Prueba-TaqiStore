@@ -34,11 +34,13 @@ public class CategoriaController {
         return "plantillaunacategoria.html";
     }
 
+    // MODIFICAR LOS CONTROLADORES PARA UNIR LAS 2 PÁGINAS WEB
     @GetMapping("/nuevo")
     public String mostrarformularioderegistrarcategoria(Model modelo) {
         CategoriaEntity categoriaEntity = new CategoriaEntity();
         modelo.addAttribute("datos_categoria", categoriaEntity);
-        return "formulariocategoria.html";
+        // return "formulariocategoria.html";
+        return "formcategoria.html";
     }
 
     @PostMapping
@@ -46,20 +48,23 @@ public class CategoriaController {
         categoriaservicio.crearCategoria(objetocategoria);
         return "redirect:/categorias";
     }
-
+    
     @GetMapping("/editar/{id_categoria}")
     public String mostrarformulariodeeditarcategoria(@PathVariable Long id_categoria, Model modelo) {
         var varunacategoria = categoriaservicio.listarUnaCategoria(id_categoria);
-        modelo.addAttribute("parametros_categoria", varunacategoria);
-        return "formularioeditarcategoria.html";
+        // modelo.addAttribute("parametros_categoria", varunacategoria);
+        modelo.addAttribute("datos_categoria", varunacategoria);
+        // return "formularioeditarcategoria.html";
+        return "formcategoria.html";
     }
-
+    
     @PostMapping("/{id_categoria}")
-    public String actualizarelcategoriaseleccionado(@PathVariable Long id_categoria, @ModelAttribute("parametros_categoria") CategoriaDto categoriaeditado) {
+    // public String actualizarelcategoriaseleccionado(@PathVariable Long id_categoria, @ModelAttribute("parametros_categoria") CategoriaDto categoriaeditado) {
+    public String actualizarelcategoriaseleccionado(@PathVariable Long id_categoria, @ModelAttribute("datos_categoria") CategoriaDto categoriaeditado) {
         categoriaservicio.actualizarCategoria(categoriaeditado);
         return "redirect:/categorias";
     }
-    
+
     @GetMapping("/eliminar/{id_categoria}")
     public String eliminarelcategoria(@PathVariable Long id_categoria){
         categoriaservicio.eliminarCategoria(id_categoria);
